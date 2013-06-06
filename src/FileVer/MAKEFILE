@@ -9,7 +9,7 @@ PACK: SPEC CLEAN
 	@ECHO CREATING PACK...
 	$(NuGet) pack $(Name)csproj -Prop Configuration=Release
 
-PUSH: PACK
+PUSH:
 	@ECHO PUSHING PACK...
 	$(NuGet) push $(Name)*.nupkg
 

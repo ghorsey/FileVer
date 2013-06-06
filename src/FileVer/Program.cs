@@ -17,10 +17,11 @@
         public static int Main(string[] args)
         {
             var command = Args.Configuration.Configure<ProgramArgs>().CreateAndBind(args);
-            var path = args[0];
-
+            
             if (command.Help || args.Length == 0)
             {
+                Console.WriteLine("FileVer.exe Version: {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+                Console.WriteLine("================================================");
                 Console.WriteLine("Usage: FileVer [Assembly Path] <options>");
                 Console.WriteLine("  Options:");
                 Console.WriteLine("    /help (/h):    This help information");
@@ -28,6 +29,8 @@
                 Console.WriteLine("    /version (/v): The version of the assembly.");
                 return 0;
             }
+
+            var path = args[0];
 
             if (!File.Exists(path))
             {
