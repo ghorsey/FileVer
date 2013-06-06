@@ -19,6 +19,16 @@
             var command = Args.Configuration.Configure<ProgramArgs>().CreateAndBind(args);
             var path = args[0];
 
+            if (command.Help || args.Length == 0)
+            {
+                Console.WriteLine("Usage: FileVer [Assembly Path] <options>");
+                Console.WriteLine("  Options:");
+                Console.WriteLine("    /help (/h):    This help information");
+                Console.WriteLine("    /name (/n):    The full name of the assembly");
+                Console.WriteLine("    /version (/v): The version of the assembly.");
+                return 0;
+            }
+
             if (!File.Exists(path))
             {
                 Console.WriteLine("{0} was not found", path);
@@ -27,14 +37,16 @@
 
             var asm = Assembly.LoadFile(Path.GetFullPath(path));
 
-            if (command.Name)
+            if (command.Name || (!command.Version && !command.Name))
             {
                 Console.WriteLine(asm.FullName);
+                return 0;
             }
 
             if (command.Version)
             {
                 Console.WriteLine(asm.GetName().Version.ToString());
+                return 0;
             }
 
             return 0;

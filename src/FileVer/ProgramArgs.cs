@@ -20,5 +20,13 @@
         ///   <c>true</c> if name; otherwise, <c>false</c>.
         /// </value>
         public bool Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="ProgramArgs"/> is help.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if help; otherwise, <c>false</c>.
+        /// </value>
+        public bool Help { get; set; }
     }
 }
