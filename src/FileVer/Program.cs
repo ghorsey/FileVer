@@ -20,7 +20,7 @@
             
             if (command.Help || args.Length == 0)
             {
-                Console.WriteLine("FileVer.exe Version: {0}", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+                Console.WriteLine("FileVer.exe Version: {0}", Assembly.GetExecutingAssembly().GetName().Version);
                 Console.WriteLine("================================================");
                 Console.WriteLine("Usage: FileVer [Assembly Path] <options>");
                 Console.WriteLine("  Options:");
